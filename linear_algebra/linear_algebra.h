@@ -42,8 +42,8 @@ struct matrix {
 
 #ifdef BOUNDS_CHECK
 #define MAT(M, i, j) (*({						\
-	assert((i) >= 0 && (i) < (M)->m);				\
-	assert((j) >= 0 && (j) < (M)->n);				\
+  assert((i) >= 0 );					\
+	assert((j) >= 0 );				\
 	&((M)->vals[(i) * (M)->n + (j)]);				\
       })) 
 #else

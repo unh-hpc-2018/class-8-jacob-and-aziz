@@ -58,7 +58,16 @@ main(int argc, char **argv)
 
   // calculate C = AB
   matrix_matrix_mul(A, B, C);
+  //testing the matrix matrix mul is working
 
+  for (int i = 0; i < C->m; i++) {
+    for (int j = 0; j < C->n; j++) {
+      
+     
+       assert( MAT(C, i, j) == MAT(C_ref, i, j) );
+      
+    }
+  }
   /* printf("C = "); */
   /* matrix_print(C); */
   /* printf("\n"); */
