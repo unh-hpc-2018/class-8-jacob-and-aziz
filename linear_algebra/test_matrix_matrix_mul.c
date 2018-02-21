@@ -53,6 +53,8 @@ main(int argc, char **argv)
   struct matrix *C = matrix_create(m, n);
   struct matrix *C_ref = matrix_create(m, n);
 
+
+
   // build a test matrix
   setup_test_matrices(A, B, C_ref);
 
@@ -60,12 +62,12 @@ main(int argc, char **argv)
   matrix_matrix_mul(A, B, C);
 
   /* printf("C = "); */
-  /* matrix_print(C); */
+   matrix_print(C); 
   /* printf("\n"); */
 
   // the resulting vector for this test should equal our reference result
   // FIXME, matrix_is_equal() is missing
-  //  assert(matrix_is_equal(C, C_ref));
+    assert(matrix_is_equal(C, C_ref));
 
   // clean up
   matrix_destroy(A);

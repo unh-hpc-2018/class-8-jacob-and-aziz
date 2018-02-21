@@ -16,9 +16,9 @@ matrix_create(int m, int n)
   M->m = m;
   M->n = n;
   M->vals = calloc(m * n, sizeof(*M->vals));
-
   return M;
 }
+
 
 // ----------------------------------------------------------------------
 // matrix_destroy
@@ -30,6 +30,24 @@ matrix_destroy(struct matrix *M)
 {
   free(M->vals);
   free(M);
+}
+
+// ----------------------------------------------------------------------
+// matrix_is_equal
+
+bool
+matrix_is_equal(const struct matrix *A, const struct matrix *B)
+{
+  for (int i = 0; i < A->n; i++) 
+    {
+    for (int k = 0; k < B->m; k++)
+      {
+        if (MAT(A, i, k) != MAT(B, i, k)) {
+        return false;
+      }
+    }
+  }
+  return true;
 }
 
 // ----------------------------------------------------------------------
@@ -50,3 +68,4 @@ matrix_print(struct matrix *M)
   }
   printf("]");
 }
+
